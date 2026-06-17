@@ -199,7 +199,7 @@ export default function ServiceDetail() {
           {/* Hero Section for Service */}
           <section className="relative overflow-hidden bg-[#0a1628] text-white py-16 sm:py-20 border-b-4 border-[#e63c2f]">
             <div className="absolute inset-0 opacity-20">
-              <img src={service.image} alt={service.title} className="h-full w-full object-cover" />
+              <img src={service.image} alt={service.title} className="h-full w-full object-cover" fetchPriority="high" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/90 to-transparent" />
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Phone, Menu, X, Home, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
 import { AnimatePresence, motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 const NAV_LINKS = [
   { label: "Начало", href: "#начало" },
@@ -26,7 +27,15 @@ export default function Header() {
       </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between sm:h-[72px]">
-          <a href="#начало" className="flex items-center gap-2.5 shrink-0 cursor-pointer">
+          <Link
+            to="/"
+            onClick={() => {
+              if (window.location.pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+            className="flex items-center gap-2.5 shrink-0 cursor-pointer"
+          >
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e63c2f] text-white shadow-lg shadow-[#e63c2f]/25 sm:h-12 sm:w-12">
               <Home className="h-5 w-5 sm:h-6 sm:w-6" />
             </div>
@@ -38,7 +47,7 @@ export default function Header() {
                 ЕООД
               </span>
             </div>
-          </a>
+          </Link>
 
           <nav className="hidden items-center rounded-full border border-[#d9e1ef] bg-[#f7f9fc] p-1 lg:flex">
             {NAV_LINKS.map((link) => (

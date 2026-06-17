@@ -21,6 +21,7 @@ export default function HeroSection() {
           src={HERO_IMAGE}
           alt="Професионален ремонт на покриви"
           className="h-full w-full object-cover"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/76 to-[#0a1628]/30" />
         <div className="absolute right-0 top-0 h-full w-2 bg-[#f5a623]" />

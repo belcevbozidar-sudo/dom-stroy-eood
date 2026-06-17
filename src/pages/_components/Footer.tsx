@@ -1,4 +1,5 @@
 import { Phone, MapPin, Home } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -8,7 +9,15 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <Link
+              to="/"
+              onClick={() => {
+                if (window.location.pathname === "/") {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+              className="flex items-center gap-3 mb-4 cursor-pointer hover:opacity-90 transition-opacity"
+            >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e63c2f] text-white">
                 <Home className="h-6 w-6" />
               </div>
@@ -20,7 +29,7 @@ export default function Footer() {
                   ЕООД
                 </span>
               </div>
-            </div>
+            </Link>
             <p className="text-sm leading-relaxed max-w-xs">
               Ремонт на покриви в цялата страна — пренареждане на керемиди,
               хидроизолация, нови покриви, улуци и обшивки. Качествени

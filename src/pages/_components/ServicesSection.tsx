@@ -82,40 +82,38 @@ export default function ServicesSection() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`group relative flex flex-col justify-between bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-l-4 ${service.accent}`}
-            >
-              <div className="space-y-4">
-                <div
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl ${service.color} text-white transition-transform duration-300 group-hover:scale-110`}
-                >
-                  <service.icon className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-black leading-snug text-[#0a1628]">
-                  <Link to={`/services/${service.id}`} className="hover:text-[#e63c2f] transition-colors">
+            <Link key={service.title} to={`/services/${service.id}`} className="block group cursor-pointer">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className={`h-full flex flex-col justify-between bg-white p-6 shadow-md transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl border-l-4 ${service.accent}`}
+              >
+                <div className="space-y-4">
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl ${service.color} text-white transition-transform duration-300 group-hover:scale-110`}
+                  >
+                    <service.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-black leading-snug text-[#0a1628] group-hover:text-[#e63c2f] transition-colors">
                     {service.title}
-                  </Link>
-                </h3>
-                <p className="text-sm leading-relaxed text-[#4a5568] line-clamp-4">
-                  {service.description}
-                </p>
-              </div>
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[#4a5568] line-clamp-4">
+                    {service.description}
+                  </p>
+                </div>
 
-              <div className="mt-5 pt-4 border-t border-[#ebedf0]">
-                <Link
-                  to={`/services/${service.id}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-black text-[#0a1628] hover:text-[#e63c2f] transition-colors uppercase tracking-wider"
-                >
-                  Виж повече
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </motion.div>
+                <div className="mt-5 pt-4 border-t border-[#ebedf0]">
+                  <span
+                    className="inline-flex items-center gap-1.5 text-xs font-black text-[#0a1628] group-hover:text-[#e63c2f] transition-colors uppercase tracking-wider"
+                  >
+                    Виж повече
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 

@@ -65,6 +65,7 @@ export default function GallerySection() {
                 src={item.src}
                 alt={item.alt}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#0a1628]/85 via-[#0a1628]/20 to-transparent p-5">
                 <div>
